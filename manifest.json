@@ -1,0 +1,39 @@
+{
+    "manifest_version": 3,
+    "name": "YouTube Music Queue Button Addon",
+    "version": "0.1.0",
+    "description": "Each song, EP and album has a + button that adds it to the queue.",
+    "action": {
+        "default_icon": {
+            "16": "icon.png",
+            "32": "icon.png",
+            "48": "icon.png",
+            "128": "icon.png"
+        }
+    },
+    "icons": {
+        "16": "icon.png",
+        "32": "icon.png",
+        "48": "icon.png",
+        "128": "icon.png"
+    },
+    "permissions": [
+        "scripting",
+        "notifications",
+        "tabs"
+    ],
+    "content_scripts": [
+        {
+            "matches": [
+                "https://music.youtube.com/*"
+            ],
+            "js": [
+                "content.js"
+            ],
+            "run_at": "document_idle"
+        }
+    ],
+    "background": {
+        "service_worker": "background.js"
+    }
+}
